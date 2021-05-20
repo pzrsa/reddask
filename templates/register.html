@@ -1,0 +1,13 @@
+{% include 'layout.html' %}
+{% block content %}
+
+<h1>register a new account</h1>
+<form method="POST" action="/">
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username(size=12) }}
+    {{ form.email.label }} {{ form.email }}
+    {{ form.password.label }} {{ form.password }}
+
+    {{ form.submit }}
+</form>
+{% endblock content %}
