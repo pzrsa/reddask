@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>reddask</title>
 </head>
 
 <nav>
@@ -13,6 +13,13 @@
     <a href="{{ url_for('register') }}">register</a>
     <a href="">log in</a>
     <a href="">log out</a>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </nav>
 
 <body>
