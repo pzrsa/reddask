@@ -2,12 +2,12 @@
 {% block content %}
 
 <h1>register a new account</h1>
-<form method="POST" action="/">
+<form method="POST" action="">
     {{ form.csrf_token }}
-    {{ form.username.label }} {{ form.username(size=12) }}
-    {{ form.email.label }} {{ form.email }}
-    {{ form.password.label }} {{ form.password }}
 
-    {{ form.submit }}
+    <div>{{ form.username.label }} {{ form.username(size=12) }}</div>
+    <div>{{ form.email.label }} {{ form.email }}</div>
+    <div>{{ form.password.label }} {{ form.password }}</div>
+    <div>{{ form.submit }}</div>
 </form>
 {% endblock content %}
