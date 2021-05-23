@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, url_for, redirect
 import os
 
 
-from forms import RegistrationForm
+from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
@@ -24,3 +24,11 @@ def register():
             f"welcome {form.username.data}, your account was successfully created")
         return redirect(url_for('home'))
     return render_template('register.html', form=form)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+
+    form = LoginForm()
+
+    return render_template('login.html', form=form)

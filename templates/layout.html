@@ -11,7 +11,7 @@
     <h1><a href="{{ url_for('home') }}">reddask</a></h1>
     <a href="">new submission</a>
     <a href="{{ url_for('register') }}">register</a>
-    <a href="">log in</a>
+    <a href="{{ url_for('login') }}">login</a>
     <a href="">log out</a>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
