@@ -1,21 +1,9 @@
 from flask import Flask, render_template, flash, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
+from reddask import app, RegistrationForm, LoginForm
 from flask_login import login_user
 from werkzeug.security import check_password_hash
-from models import User
-import os
 
-
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-db = SQLAlchemy(app)
-bcrypt = Bcrypt()
-
-
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+from reddask import User
 
 
 @app.route('/')
