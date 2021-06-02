@@ -1,9 +1,9 @@
-from flask import Flask, render_template, flash, url_for, redirect
-from reddask import app, RegistrationForm, LoginForm
+from flask import flash, redirect, render_template, url_for
 from flask_login import login_user
-from werkzeug.security import check_password_hash
 
-from reddask import User
+from reddask import app
+from reddask.models import User
+from reddask.forms import LoginForm, RegistrationForm
 
 
 @app.route('/')
@@ -29,8 +29,7 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        if user and check_password_hash(user.password, form.password.data):
-            login_user(user)
+        if user:
             flash(f"login successful!")
             return redirect(url_for('home'))
         else:
