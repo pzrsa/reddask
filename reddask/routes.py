@@ -29,7 +29,7 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        if user:
+        if user and user.password == form.password.data:
             flash(f"login successful!")
             return redirect(url_for('home'))
         else:
